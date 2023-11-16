@@ -123,17 +123,55 @@
 
 // ui implementation functions 
 
-   function implementGame() {
-    let i;
-    let playList = ["rock", "Paper", "Scissors"];
-    for(i = 0; i < playList.length; ++i) {
-        let gameChoice = document.createElement('div');
-        gameChoice.classList.add(playList[i]);
-        gameBox.appendChild(gameChoice);
+// implement greeting screen ui 
+
+let greetText = [
+    "Welcome to my Rock, Paper, Scissors game", 
+    "You will play 5 rounds against the computer", 
+    "Press Space to begin"
+];
+
+
+function greetScreen() {
+     implementGreet();
+    
+    for(i = 0; i < greetText.length; ++i) {
+        delay(i);
     }
-   };
+}
+
+function delay(i) {
+    setTimeout(() => {
+       let greeting = document.querySelector('.greeting');
+       greeting.textContent = greetText[i];
+    }, 5000 * i);
+};
+
+function implementGreet() {
+    let greeting = document.createElement('h1');
+    greeting.classList.add('greeting');
+    gameBox.append(greeting);
+}
+
+greetScreen();
+
+
+
+
+
+
+//    function implementGame() {
+//     let i;
+//     let playList = ["rock", "Paper", "Scissors"];
+//     for(i = 0; i < playList.length; ++i) {
+//         let gameChoice = document.createElement('div');
+//         gameChoice.classList.add(playList[i]);
+//         gameChoice.classList.add('gameCircle')
+//         gameBox.appendChild(gameChoice);
+//     }
+//    };
 
 
   
 
-   document.addEventListener("DOMContentLoaded", implementGame());
+//    document.addEventListener("DOMContentLoaded", implementGame());

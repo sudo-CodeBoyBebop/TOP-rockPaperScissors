@@ -26,8 +26,35 @@ body {
 }
 
 .greeting {
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 20vh;
-    font-size: large;
+    font-size: 48px;
+    font-family: 'Caveat', cursive;
     color:#000000;
+}
+
+/*  animation  */
+
+.fade-in-out {
+    opacity: 0;
+    animation: fade-in 4s ease-in forwards, fade-out 4.5s 1s ease-out forwards;
+    animation-iteration-count: 3;
+}
+
+
+@keyframes fade-in {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }

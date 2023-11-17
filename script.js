@@ -128,7 +128,7 @@
 let greetText = [
     "Welcome to my Rock, Paper, Scissors game", 
     "You will play 5 rounds against the computer", 
-    "Press Space to begin"
+    "Let's begin"
 ];
 
 
@@ -150,6 +150,7 @@ function delay(i) {
 function implementGreet() {
     let greeting = document.createElement('h1');
     greeting.classList.add('greeting');
+    greeting.classList.add('fade-in-out');
     gameBox.append(greeting);
 }
 
@@ -157,10 +158,7 @@ greetScreen();
 
 
 
-
-
-
-//    function implementGame() {
+// function implementGame() {
 //     let i;
 //     let playList = ["rock", "Paper", "Scissors"];
 //     for(i = 0; i < playList.length; ++i) {

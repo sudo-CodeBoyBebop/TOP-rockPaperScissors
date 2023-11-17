@@ -166,7 +166,7 @@ function implementGame() {
     gameBox.removeChild(h1);
 
     let i;
-    let playList = ["rock", "Paper", "Scissors"];
+    let playList = ["rock", "paper", "scissors"];
     for(i = 0; i < playList.length; ++i) {
         let gameChoice = document.createElement('div');
         gameChoice.classList.add(playList[i]);

@@ -25,6 +25,11 @@ body {
     background-color: #000fff;
 }
 
+.gameCircle:hover {
+    height: 150px;
+    width: 150px;    
+}
+
 .rock {
     background-image: url('Images/rock.jpg');
     background-position: center center;

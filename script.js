@@ -138,6 +138,7 @@ function greetScreen() {
     for(i = 0; i < greetText.length; ++i) {
         delay(i);
     }
+    implementGame();
 }
 
 function delay(i) {
@@ -148,6 +149,7 @@ function delay(i) {
 };
 
 function implementGreet() {
+    
     let greeting = document.createElement('h1');
     greeting.classList.add('greeting');
     greeting.classList.add('fade-in-out');
@@ -158,16 +160,21 @@ greetScreen();
 
 
 
-// function implementGame() {
-//     let i;
-//     let playList = ["rock", "Paper", "Scissors"];
-//     for(i = 0; i < playList.length; ++i) {
-//         let gameChoice = document.createElement('div');
-//         gameChoice.classList.add(playList[i]);
-//         gameChoice.classList.add('gameCircle')
-//         gameBox.appendChild(gameChoice);
-//     }
-//    };
+function implementGame() {
+    setTimeout(() => {
+    let h1 = document.querySelector('h1');
+    gameBox.removeChild(h1);
+
+    let i;
+    let playList = ["rock", "Paper", "Scissors"];
+    for(i = 0; i < playList.length; ++i) {
+        let gameChoice = document.createElement('div');
+        gameChoice.classList.add(playList[i]);
+        gameChoice.classList.add('gameCircle')
+        gameBox.appendChild(gameChoice);
+    }
+   }, 15000);
+};
 
 
   

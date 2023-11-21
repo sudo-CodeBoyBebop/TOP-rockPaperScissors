@@ -14,15 +14,15 @@ let greetText = [
     "Let's begin"
 ];
 
-
 function greetScreen() {
      implementGreet();
     
     for(i = 0; i < greetText.length; ++i) {
         delay(i);
     }
-    implementGame();
+   
 }
+
 
 function delay(i) {
     setTimeout(() => {
@@ -30,6 +30,7 @@ function delay(i) {
        greeting.textContent = greetText[i];
     }, 5000 * i);
 };
+
 
 function implementGreet() {
     
@@ -42,11 +43,40 @@ function implementGreet() {
 greetScreen();
 
 
+
+function playRound() {
+    implementGame();
+   let result;
+    let computerChoice = getComputerChoice();
+    let playerChoice = getPlayerSelection();
+
+        if(computerChoice == playerChoice) {
+            result = "Tie";
+        } else if (computerChoice == "rock" && playerChoice == "paper"
+         || computerChoice == "paper" && playerChoice == "scissors" 
+         || computerChoice == "scissors" && playerChoice == "rock") {
+            result = "Players Wins!";
+        }  else 
+        if (computerChoice == "rock" && playerChoice == "scissors"
+        || computerChoice == "paper" && playerChoice == "rock" 
+        || computerChoice == "scissors" && playerChoice == "paper") {
+           result = "Computer Wins!";
+        }; 
+     
+    console.log(result);
+};
+
+
+
+
+playRound();
+
+
 // implement gameplay screen
 function implementGame() {
     setTimeout(() => {
-    let h1 = document.querySelector('h1');
-    gameBox.removeChild(h1);
+    let h1 = document.querySelector('.greeting');
+    h1.remove(h1);
 
     let i;
     let playList = ["rock", "paper", "scissors"];
@@ -91,32 +121,15 @@ function getPlayerSelection() {
 
 function getData(e) {
   let data;
-  data = e.target.getAttribute('data-choice');
-  console.log(data)
-;  return data;
+  if(e) {
+   data = e.target.getAttribute('data-choice');
+  console.log(data);
+  }
+  return data;
 }
 
 
 
-function playRound() {
-   let result;
-    let computerChoice = getComputerChoice();
-    let playerChoice = getPlayerSelection();
-
-        if(computerChoice == playerChoice) {
-            result = "Tie";
-        } else if (computerChoice == "rock" && playerChoice == "paper"
-         || computerChoice == "paper" && playerChoice == "scissors" 
-         || computerChoice == "scissors" && playerChoice == "rock") {
-            result = "Players Wins!";
-        }  else if (computerChoice == "rock" && playerChoice == "scissors"
-        || computerChoice == "paper" && playerChoice == "rock" 
-        || computerChoice == "scissors" && playerChoice == "paper") {
-           result = "Computer Wins!";
-        }; 
-     
-    return result;
-};
 
 function game() {
     let i;

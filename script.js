@@ -3,7 +3,8 @@ const main = document.getElementById('main');
 
 const gameBox = document.getElementById('gameBox');
 
-
+let playerScore = 0;
+let computerScore = 0;
 
 
 // implement greeting screen ui 
@@ -41,35 +42,8 @@ function implementGreet() {
 }
 
 greetScreen();
+implementGame();
 
-
-
-function playRound() {
-    implementGame();
-   let result;
-    let computerChoice = getComputerChoice();
-    let playerChoice = getPlayerSelection();
-
-        if(computerChoice == playerChoice) {
-            result = "Tie";
-        } else if (computerChoice == "rock" && playerChoice == "paper"
-         || computerChoice == "paper" && playerChoice == "scissors" 
-         || computerChoice == "scissors" && playerChoice == "rock") {
-            result = "Players Wins!";
-        }  else 
-        if (computerChoice == "rock" && playerChoice == "scissors"
-        || computerChoice == "paper" && playerChoice == "rock" 
-        || computerChoice == "scissors" && playerChoice == "paper") {
-           result = "Computer Wins!";
-        }; 
-     
-    console.log(result);
-};
-
-
-
-
-playRound();
 
 
 // implement gameplay screen
@@ -80,16 +54,65 @@ function implementGame() {
 
     let i;
     let playList = ["rock", "paper", "scissors"];
+    let rockPaperScissors = ["✊", "✋", "✌️"]
     for(i = 0; i < playList.length; ++i) {
         let gameChoice = document.createElement('div');
         gameChoice.classList.add(playList[i]);
         gameChoice.classList.add('gameCircle');
+        gameChoice.textContent = rockPaperScissors[i];
         gameChoice.setAttribute('data-choice', playList[i])
-        gameChoice.addEventListener("click", getData);
+        gameChoice.addEventListener("click", playRound);
         gameBox.appendChild(gameChoice);
-    }
+    } 
+    // game();
    }, 15000);
+
+
 };
+
+
+
+// function game() {
+//     let playerChoice = getPlayerSelection();
+//     console.log('yeet');
+   
+// }
+
+  
+
+function playRound(e) {
+    
+   let result;
+    let computerChoice = getComputerChoice();
+    console.log(computerChoice);
+   
+    let playerChoice = e.target.getAttribute('data-choice');
+    console.log(playerChoice);
+ 
+        if(computerChoice == playerChoice) {
+            result = "Tie";
+        } else if (computerChoice == "rock" && playerChoice == "paper"
+         || computerChoice == "paper" && playerChoice == "scissors" 
+         || computerChoice == "scissors" && playerChoice == "rock") {
+            result = "Players Wins!";
+            playerScore++;
+        }  else if (computerChoice == "rock" && playerChoice == "scissors"
+        || computerChoice == "paper" && playerChoice == "rock" 
+        || computerChoice == "scissors" && playerChoice == "paper") {
+           result = "Computer Wins!";
+           computerScore++;
+        }; 
+     
+    console.log(result);
+
+};
+
+
+
+
+
+
+
 
 
 
@@ -113,33 +136,13 @@ function getComputerChoice() {
         return answer;
     };
 
-function getPlayerSelection() {
-     let playerChoice; 
-     playerChoice = getData();
-    return playerChoice
-}
-
-function getData(e) {
-  let data;
-  if(e) {
-   data = e.target.getAttribute('data-choice');
-  console.log(data);
-  }
-  return data;
-}
+// function getPlayerSelection() {
+//      let playerChoice; 
+//      playerChoice = getData();
+//     return playerChoice
+// }
 
 
-
-
-function game() {
-    let i;
-
-    for(i = 0; i < 5; i++) {
-        let result = playRound();
-        console.log(result);
-    }
-    
-}
 
 
 

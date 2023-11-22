@@ -13,42 +13,26 @@ body {
     gap: 25%;
     justify-content: center;
     align-items: center;
-    height: 70%;
+    height: 40%;
     width: 100%;
     background-color: #ffffff;
 }
 
 .gameCircle {
+   
     height: 125px;
     width: 125px;
-    border-radius: 75px;
-    background-color: #000fff;
+    font-size: 100px;
+   
 }
 
 .gameCircle:hover {
     height: 150px;
     width: 150px;    
+    font-size: 125px;
 }
 
-.rock {
-    background-image: url('Images/rock.jpg');
-    background-position: center center;
-    background-size: cover;
-}
 
-.paper {
-    background-image: url('Images/paper.jpg');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.scissors {
-    background-image: url('Images/scissors.jpg');
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 
 .greeting {
     display: flex;
@@ -58,6 +42,19 @@ body {
     font-size: 48px;
     font-family: 'Caveat', cursive;
     color:#000000;
+}
+
+
+#scoreBox {
+    display: flex;
+    color: white;
+    font-family: 'Caveat', cursive;
+    font-size: 40px;
+}
+
+#computerScore, #playerScore {
+    height: 20vh;
+    width: 50%;
 }
 
 /*  animation  */

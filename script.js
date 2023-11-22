@@ -3,8 +3,10 @@ const main = document.getElementById('main');
 
 const gameBox = document.getElementById('gameBox');
 
-let playerScore = 0;
-let computerScore = 0;
+let playerScore = 1;
+let computerScore = 1;
+let totalScore = 0;
+
 
 
 // implement greeting screen ui 
@@ -81,29 +83,48 @@ function implementGame() {
   
 
 function playRound(e) {
-    
+   let player = document.getElementById('playerScore');
+   let computer = document.getElementById('computerScore');
+   let finalScore = document.getElementById('finalScore');
+   let gameChoice = document.getElementsByClassName('gameChoice');
+
    let result;
     let computerChoice = getComputerChoice();
     console.log(computerChoice);
    
     let playerChoice = e.target.getAttribute('data-choice');
     console.log(playerChoice);
- 
-        if(computerChoice == playerChoice) {
-            result = "Tie";
-        } else if (computerChoice == "rock" && playerChoice == "paper"
+    
+
+         if (computerChoice == "rock" && playerChoice == "paper"
          || computerChoice == "paper" && playerChoice == "scissors" 
          || computerChoice == "scissors" && playerChoice == "rock") {
-            result = "Players Wins!";
-            playerScore++;
+            totalScore++;
+            console.log(totalScore);
+            player.textContent = "Player Score:" + playerScore++;
+
         }  else if (computerChoice == "rock" && playerChoice == "scissors"
         || computerChoice == "paper" && playerChoice == "rock" 
         || computerChoice == "scissors" && playerChoice == "paper") {
-           result = "Computer Wins!";
-           computerScore++;
+           totalScore++;
+           console.log(totalScore);
+           computer.textContent = "Computer Score:" + computerScore++;
         }; 
      
-    console.log(result);
+    if (totalScore == 5) {
+       for(let i = 0; i < 3; i++) {
+        gameBox.remove();
+       }
+        
+        if(playerScore > computerScore) {
+            result = "Player Wins!";
+    } else if (playerScore < computerScore) {
+            result = "Computer Wins!";
+    } else if (playerScore == computerScore) {
+            result = "It's a tie!";
+    }
+       finalScore.textContent = result;
+    }
 
 };
 

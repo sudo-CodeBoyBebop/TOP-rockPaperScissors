@@ -47,14 +47,23 @@ body {
 
 #scoreBox {
     display: flex;
+    justify-content: space-evenly;
     color: white;
     font-family: 'Caveat', cursive;
     font-size: 40px;
 }
 
 #computerScore, #playerScore {
+    display: flex;
     height: 20vh;
     width: 50%;
+}
+
+#finalScore {
+    color: white;
+    font-size: 40px;
+    width: 100%;
+    height: 20vh;
 }
 
 /*  animation  */
